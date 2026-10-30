@@ -1,0 +1,6 @@
+tool: kite_login_link
+behaviour: Returns the Zerodha Kite login URL for the owner's app. The token it leads to lasts until about 6 AM IST next day.
+responses:
+  - when: Always
+    latency_ms: 100
+    output: { login_url: "https://kite.zerodha.com/connect/login?v=3&api_key=testkey", note: "Sign in with your Zerodha password and 2FA. The token lasts until about 6 AM IST tomorrow." }

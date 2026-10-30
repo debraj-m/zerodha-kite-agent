@@ -1,0 +1,12 @@
+tool: kite_gtt_delete
+behaviour: Needs confirmed true. Deletes one GTT by id. Refuses unless orders are switched on.
+responses:
+  - when: Deleted (usual)
+    latency_ms: 500
+    output: { trigger_id: 123 }
+  - when: Orders are switched off
+    latency_ms: 50
+    error: "Order changes are switched off (KITE_ORDERS_ENABLED is not 1). Nothing was sent."
+  - when: Not logged in today
+    latency_ms: 200
+    error: "Kite login needed today. Call kite_login_link and send the person the link."

@@ -1,0 +1,9 @@
+tool: kite_cancel_order
+behaviour: Needs confirmed true. Cancels an open order by id. Fails if the order is already complete or cancelled.
+responses:
+  - when: The order was open (usual)
+    latency_ms: 700
+    output: { order_id: "240101000000002" }
+  - when: The order is already complete
+    latency_ms: 400
+    error: "Order cannot be cancelled as it is already complete."

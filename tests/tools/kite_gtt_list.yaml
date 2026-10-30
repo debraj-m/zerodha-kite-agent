@@ -1,0 +1,12 @@
+tool: kite_gtt_list
+behaviour: Lists the person's GTT orders with status, trigger, side, quantity and limit price.
+responses:
+  - when: One active sell GTT (usual)
+    latency_ms: 500
+    output: { gtts: [{ trigger_id: 123, status: active, symbol: "NSE:ADANIGREEN", trigger_price: 1231.25, side: SELL, quantity: 5, limit_price: 1225, product: CNC, expires_at: "2027-10-26 00:00:00" }], count: 1, covers: "All GTTs." }
+  - when: No GTTs
+    latency_ms: 400
+    output: { gtts: [], count: 0, covers: "All GTTs." }
+  - when: Not logged in today
+    latency_ms: 200
+    error: "Kite login needed today. Call kite_login_link and send the person the link."

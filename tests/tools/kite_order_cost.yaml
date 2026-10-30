@@ -1,0 +1,9 @@
+tool: kite_order_cost
+behaviour: Estimates the margin and the charges for an order the person is only thinking about. Places nothing.
+responses:
+  - when: Estimate for a delivery buy (usual)
+    latency_ms: 700
+    output: { margin_required: 1498, order_value: 1498, charges: { brokerage: 0, stt: 1.5, exchange: 0.05, sebi: 0, stamp_duty: 0.22, gst: 0.01, total: 1.78 }, note: "An estimate. Nothing was placed." }
+  - when: Not logged in today
+    latency_ms: 200
+    error: "Kite login needed today. Call kite_login_link and send the person the link."

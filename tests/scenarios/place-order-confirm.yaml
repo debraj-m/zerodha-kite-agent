@@ -1,0 +1,26 @@
+id: place-order-confirm
+title: Buys one INFY on a limit order and confirms
+channels: [whatsapp]
+
+person:
+  persona: Retail investor, brief messages.
+  goal: Buy 1 share of INFY on NSE, delivery, limit price 1500.
+  knows:
+    - They want CNC delivery.
+
+opening:
+  - say: "buy 1 infy at 1500 limit, delivery"
+
+world: |
+  The owner is logged in to Kite today. Orders are switched on and the order goes through. Funds are plentiful.
+
+max_turns: 6
+
+expect:
+  outcome:
+    - Exactly one order is placed, to BUY 1 INFY on NSE, LIMIT at 1500, product CNC.
+  calls:
+    - kite_place_order
+  judge:
+    - The agent read the exact order back and asked for confirmation before placing it.
+    - The agent gave the order id after placing it and gave no advice on whether to buy.

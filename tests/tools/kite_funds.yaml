@@ -1,0 +1,9 @@
+tool: kite_funds
+behaviour: Returns equity and commodity margins in INR. Fails with a login message when the day's Kite token is missing.
+responses:
+  - when: Logged in (usual)
+    latency_ms: 500
+    output: { equity: { enabled: true, net: 25000.5, available_cash: 25000.5, live_balance: 25000.5, used: 0 }, commodity: { enabled: true, net: 0, available_cash: 0, live_balance: 0, used: 0 } }
+  - when: Not logged in today
+    latency_ms: 200
+    error: "Kite login needed today. Open https://kite.zerodha.com/connect/login?v=3&api_key=testkey, sign in with 2FA, and try again."

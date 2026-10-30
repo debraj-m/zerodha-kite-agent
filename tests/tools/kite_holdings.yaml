@@ -1,0 +1,9 @@
+tool: kite_holdings
+behaviour: Returns all long-term holdings with quantity, average cost, last price and P&L in INR, plus the total P&L.
+responses:
+  - when: Logged in, has holdings (usual)
+    latency_ms: 700
+    output: { holdings: [{ symbol: "NSE:INFY", quantity: 5, average_price: 1450, last_price: 1500, pnl: 250, day_change_percent: 0.4 }], count: 1, total_pnl: 250, covers: "All holdings, none left out." }
+  - when: Not logged in today
+    latency_ms: 200
+    error: "Kite login needed today. Open https://kite.zerodha.com/connect/login?v=3&api_key=testkey, sign in with 2FA, and try again."

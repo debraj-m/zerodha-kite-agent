@@ -1,0 +1,9 @@
+tool: kite_alert_create
+behaviour: Creates a price alert on Zerodha that notifies the person in the Kite app. Places no order.
+responses:
+  - when: The alert is made (usual)
+    latency_ms: 600
+    output: { alert_id: "a1b2c3d4-0000-4000-8000-000000000001", name: "ADANIGREEN <= 1231.25", status: enabled, note: "You will get a WhatsApp message here when it fires (checked every couple of minutes while you are signed in), and Kite notifies you in the app too. No order is placed." }
+  - when: Not logged in today
+    latency_ms: 200
+    error: "Kite login needed today. Call kite_login_link and send the person the link."

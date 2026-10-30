@@ -1,0 +1,9 @@
+tool: kite_alert_delete
+behaviour: Needs confirmed true. Deletes one alert by id.
+responses:
+  - when: Deleted (usual)
+    latency_ms: 500
+    output: { deleted: "a1b2c3d4-0000-4000-8000-000000000001" }
+  - when: Not logged in today
+    latency_ms: 200
+    error: "Kite login needed today. Call kite_login_link and send the person the link."

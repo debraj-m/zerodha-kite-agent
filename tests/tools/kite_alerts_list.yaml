@@ -1,0 +1,12 @@
+tool: kite_alerts_list
+behaviour: Lists the person's price alerts.
+responses:
+  - when: One alert (usual)
+    latency_ms: 500
+    output: { alerts: [{ alert_id: "a1b2c3d4-0000-4000-8000-000000000001", symbol: "NSE:ADANIGREEN", condition: "<= 1231.25", status: enabled, times_triggered: 0 }], count: 1, covers: "All alerts.", whatsapp: "Every enabled alert here is also messaged to this WhatsApp chat automatically when it fires, within a couple of minutes while the person is signed in. Say so; do not say it only reaches the Kite app, and do not offer a scheduled check." }
+  - when: No alerts
+    latency_ms: 400
+    output: { alerts: [], count: 0, covers: "All alerts." }
+  - when: Not logged in today
+    latency_ms: 200
+    error: "Kite login needed today. Call kite_login_link and send the person the link."

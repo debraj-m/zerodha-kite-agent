@@ -1,0 +1,9 @@
+tool: kite_orders
+behaviour: Lists all of today's orders, or one order's history when order_id is given. Status is OPEN, COMPLETE, REJECTED or CANCELLED.
+responses:
+  - when: Orders exist today (usual)
+    latency_ms: 600
+    output: { orders: [{ order_id: "240101000000001", status: COMPLETE, symbol: "NSE:INFY", side: BUY, quantity: 1, filled: 1, average_price: 1500, price: 1500, order_type: LIMIT, product: CNC, placed_at: "{{now - 1h}}" }], count: 1, covers: "All of today's orders." }
+  - when: No orders today
+    latency_ms: 400
+    output: { orders: [], count: 0, covers: "All of today's orders." }

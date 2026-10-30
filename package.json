@@ -1,0 +1,47 @@
+{
+  "name": "zerodha-kite-agent",
+  "displayName": "Zerodha Kite agent",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Operate your own Zerodha account from WhatsApp: holdings, P&L, alerts and cost previews. A Flow Framework agent.",
+  "type": "module",
+  "bin": {
+    "zerodha-kite-agent": "src/cli.ts"
+  },
+  "engines": {
+    "node": ">=22.18"
+  },
+  "scripts": {
+    "start": "node --env-file-if-exists=.env src/main.ts",
+    "mcp": "node --env-file-if-exists=.env src/mcp.ts",
+    "cli": "node --env-file-if-exists=.env src/cli.ts",
+    "test": "flow test",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@flow-engineer/flow": "^0.8.1",
+    "@modelcontextprotocol/client": "2.3.1",
+    "@modelcontextprotocol/server": "2.3.1",
+    "@stricli/core": "1.3.0",
+    "marked": "12.0.2",
+    "marked-terminal": "7.3.0",
+    "oidc-provider": "9.12.2"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.5",
+    "typescript": "^7.0.2"
+  },
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/debraj-m/zerodha-kite-agent.git"
+  },
+  "keywords": [
+    "zerodha",
+    "kite-connect",
+    "whatsapp",
+    "agent",
+    "mcp",
+    "flow-framework"
+  ]
+}

@@ -1,0 +1,26 @@
+id: protect-holding-confirm
+title: Asks to protect a holding against a 1.5% drop; the agent reads the GTT back and waits for yes
+channels: [whatsapp]
+
+person:
+  persona: Investor who wants a safety net on one holding.
+  goal: Ask for a sell trigger 1.5% below the current price of ADANIGREEN, check what the agent proposes, and confirm it.
+
+opening:
+  - say: "protect my ADANIGREEN: sell if it drops 1.5% from now"
+
+world: |
+  The owner is logged in to Kite today and holds 5 ADANIGREEN at a last price of 1250. Orders are switched on.
+
+max_turns: 6
+
+expect:
+  outcome:
+    - Before any GTT exists, the agent reads back the symbol, quantity, trigger price and limit price and asks for confirmation.
+    - After the person confirms, one GTT is set.
+  calls:
+    - kite_price_level
+    - kite_gtt_create
+  judge:
+    - The trigger price the agent reads back is 1231.25.
+    - The agent gives no opinion on whether the person should sell.

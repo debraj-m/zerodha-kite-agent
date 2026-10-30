@@ -1,0 +1,9 @@
+tool: kite_positions
+behaviour: Returns today's net positions with P&L in INR and the total. Empty outside market activity.
+responses:
+  - when: Open positions exist (usual)
+    latency_ms: 600
+    output: { positions: [{ symbol: "NSE:SBIN", product: MIS, quantity: 10, average_price: 800, last_price: 805, pnl: 50 }], count: 1, total_pnl: 50, covers: "All net positions today." }
+  - when: No positions
+    latency_ms: 400
+    output: { positions: [], count: 0, total_pnl: 0, covers: "All net positions today." }

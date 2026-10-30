@@ -1,0 +1,11 @@
+tool: kite_price_level
+behaviour: Pure arithmetic. Returns the price a percentage below or above a price, rounded to the 0.05 tick. Needs no login.
+responses:
+  - when: A drop from 1250 by 1.5% (usual)
+    latency_ms: 20
+    input: { price: 1250, percent: 1.5, direction: down }
+    output: { level: 1231.25, exact: 1231.25, note: "Rounded to the nearest ₹0.05." }
+  - when: A drop from 270 by 1.5%
+    latency_ms: 20
+    input: { price: 270, percent: 1.5, direction: down }
+    output: { level: 265.95, exact: 265.95, note: "Rounded to the nearest ₹0.05." }

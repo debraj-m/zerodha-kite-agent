@@ -1,0 +1,6 @@
+node_modules/
+.env
+.flow/
+.monetzly/
+.DS_Store
+*.log
